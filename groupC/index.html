@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple tables in D3</title>
+    <meta charset="utf-8">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src='jetpack-starter-kit.js'></script>
+    <style type="text/css">
+    body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
+    th { text-align: left; }
+    th, td { padding: 0 2em 1.5ex 0;}
+    th.center, td.center { text-align: center; }
+    th.num, td.num { text-align: right; }
+    </style>
+</head>
+<body>
+    <script>
+
+
+
+    d3.json("matches_data.json", function(data)
+
+        {
+            // column definitions OK!
+            var columns = [
+                { head: '', cl: 'center', html: ƒ('flagA')},
+                { head: '', cl: 'center', html: ƒ('teamA')},
+                { head: 'Vitória', cl: 'num', html: ƒ('Awins', percent())},
+                { head: 'Empate', cl: 'num', html: ƒ('draw', percent())},
+                { head: 'Vitória', cl: 'num', html: ƒ('Bwins', percent())},
+                { head: '', cl: 'center', html: ƒ('teamB')},
+                { head: '', cl: 'center', html: ƒ('flagB')}
+            ];
+
+            var columns2 = [
+                { head: 'Flag A', cl: 'center', html: ƒ('flagA')},
+                { head: 'Team A', cl: 'center', html: ƒ('teamA')},
+                { head: 'A wins', cl: 'num', html: ƒ('Awins', percent())},
+                { head: 'Draw', cl: 'num', html: ƒ('draw', percent())},
+                { head: 'B wins', cl: 'num', html: ƒ('Bwins', percent())},
+                { head: 'Team B', cl: 'center', html: ƒ('teamB')}
+            ];
+
+            // Criando tabela
+            var table = d3.select('body')
+                .append('table');
+
+            // Criando cabecalho
+            table.append('thead').append('tr')
+                .selectAll('th')
+                .data(columns).enter()
+                .append('th')
+                .attr('class', ƒ('cl'))
+                .text(ƒ('head'));
+
+            // Corpo da tabela
+            table.append('tbody')
+            .selectAll('tr')
+            .data(data).enter()
+            .append('tr')
+            .selectAll('td')
+            //.data(test[2].flagA).enter()
+            .data(function(row,i) {
+                return row.flagA
+            }).enter()
+            .append('td')
+            .append('img')
+            .attr('src', function(d) {
+                return d.src;
+            })
+            .data(function(row, i) {
+                return columns2.map(function(c) {
+                    // compute cell values for this specific row
+                    var cell = {};
+                    d3.keys(c).forEach(function(k) {
+                        cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+                    });
+                    return cell;
+                });
+            }).enter()
+            .append('td')
+            .html(ƒ('html'))
+            .attr('class', ƒ('cl'))
+            .data(function(row,i) {
+                return row.flagB
+            }).enter()
+            .append('td')
+            .append('img')
+            .attr('src', function(d) {
+                return d.src;
+            });
+
+        // Cover percentage
+        function percent() {
+            return function(f) { return Math.floor(100 * f) % 100 + '%'; };
+        }
+
+        })
+    </script>
+</body>
+</html>
