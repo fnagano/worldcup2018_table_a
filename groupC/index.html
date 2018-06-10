@@ -11,6 +11,10 @@
     th, td { padding: 0 1em 1ex 0;}
     th.center, td.center { text-align: center; }
     th.num, td.num { text-align: right; }
+    table {
+        table-layout: fixed;
+        width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +47,7 @@
 
             // Criando tabela
             var table = d3.select('body')
-                .append('table').attr('table-layout','fixed').attr('width','500px');
+                .append('table');
 
             // Criando cabecalho
             table.append('thead').append('tr')
