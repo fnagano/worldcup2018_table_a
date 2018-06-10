@@ -8,22 +8,39 @@
     <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 10px;}
     th { text-align: center; }
-    th, td { padding: 0 1em 1ex 0;}
+    th, td { padding: 0 0em 1ex 0;}
     th.center, td.center { text-align: center; }
     th.num, td.num { text-align: center; }
     table {
         table-layout: fixed;
         width: 500px;
         }
+    table th:nth-child(1){
+       width: 30px;
+     }
+    table th:nth-child(2){
+       width: 110px;
+     }
+    table th:nth-child(3){
+       width: 45px;
+     }
+    table th:nth-child(4){
+       width: 45px;
+     }
+    table th:nth-child(5){
+       width: 45px;
+     }
+    table th:nth-child(6){
+       width: 110px;
+     }
+    table th:nth-child(1){
+       width: 30px;
+     }
     </style>
 </head>
 <body>
     <script>
-
-
-
     d3.json("matches_data.json", function(data)
-
         {
             // column definitions OK!
             var columns = [
@@ -35,7 +52,6 @@
                 { head: 'Vitória', cl: 'center', html: ƒ('teamB')},
                 { head: '', cl: 'center', html: ƒ('flagB')}
             ];
-
             var columns2 = [
                 { head: 'Flag A', cl: 'center', html: ƒ('flagA')},
                 { head: 'Team A', cl: 'center', html: ƒ('teamA')},
@@ -44,11 +60,9 @@
                 { head: 'B wins', cl: 'num', html: ƒ('Bwins', percent())},
                 { head: 'Team B', cl: 'center', html: ƒ('teamB')}
             ];
-
             // Criando tabela
             var table = d3.select('body')
                 .append('table');
-
             // Criando cabecalho
             table.append('thead').append('tr')
                 .selectAll('th')
@@ -56,7 +70,6 @@
                 .append('th')
                 .attr('class', ƒ('cl'))
                 .text(ƒ('head'));
-
             // Corpo da tabela
             table.append('tbody')
             .selectAll('tr')
@@ -93,12 +106,10 @@
             .attr('src', function(d) {
                 return d.src;
             });
-
         // Cover percentage
         function percent() {
             return function(f) { return Math.floor(100 * f) % 100 + '%'; };
         }
-
         })
     </script>
 </body>
