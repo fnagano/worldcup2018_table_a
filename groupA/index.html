@@ -9,35 +9,34 @@
     <style type="text/css">
     body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 10px;}
     th { text-align: center; }
-    th, td { padding: 1 1em 0ex 0;}
+    th, td { padding: 0 0em 0ex 0;}
     th.center, td.center { text-align: center; }
     th.num, td.num { text-align: center; }
-    tr:hover {background-color: #f5f5f5;}
-    td {
-    border-bottom: 1px solid #ddd;
-    border-collapse: collapse;
-}
-    th {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-bottom: 3px solid #ddd;
-    border-collapse: collapse;
-    background-color: #ffffff;
-}   
     table {
         margin-left: auto;
         margin-right: auto;
         table-layout: fixed;
         width: 435px;
         }
+    tr:hover {background-color: #f5f5f5;}
+    th {
+    border-bottom: 3px solid #ddd;
+    border-collapse: collapse;
+}
+    td {
+    border-bottom: 1px solid #ddd;
+    border-collapse: collapse;
+}	    
+    th {
+    background-color: #ffffff;	    
+    padding-top: 6px;
+    padding-bottom: 6px;
+}   
     table th:nth-child(1){
-       width: 110px;
-     }
-    table td:nth-child(1){
-       text-align: right;
-     }  
-    table th:nth-child(2){
        width: 30px;
+     }
+    table th:nth-child(2){
+       width: 110px;
      }
     table th:nth-child(3){
        width: 45px;
@@ -49,14 +48,11 @@
        width: 45px;
      }
     table th:nth-child(6){
-       width: 30px;
-     }
-    table th:nth-child(7){
        width: 110px;
      }
-    table td:nth-child(7){
-       text-align: left;
-     }  
+    table th:nth-child(1){
+       width: 30px;
+     }
     </style>
 </head>
 <body>
@@ -65,16 +61,16 @@
         {
             // column definitions OK!
             var columns = [
-                { head: 'Seleção', cl: 'center', html: ƒ('teamA')},
                 { head: '', cl: 'center', html: ƒ('flagA')},
-                { head: 'V', cl: 'num', html: ƒ('Awins', percent())},
-                { head: 'E', cl: 'center', html: ƒ('draw', percent())},
-                { head: 'V', cl: 'num', html: ƒ('Bwins', percent())},
-                { head: '', cl: 'center', html: ƒ('flagB')},
-                { head: 'Seleção', cl: 'center', html: ƒ('teamB')}
+                { head: 'Vitória', cl: 'center', html: ƒ('teamA')},
+                { head: '', cl: 'num', html: ƒ('Awins', percent())},
+                { head: 'Empate', cl: 'center', html: ƒ('draw', percent())},
+                { head: '', cl: 'num', html: ƒ('Bwins', percent())},
+                { head: 'Vitória', cl: 'center', html: ƒ('teamB')},
+                { head: '', cl: 'center', html: ƒ('flagB')}
             ];
             var columns2 = [
-
+                { head: 'Flag A', cl: 'center', html: ƒ('flagA')},
                 { head: 'Team A', cl: 'center', html: ƒ('teamA')},
                 { head: 'A wins', cl: 'num', html: ƒ('Awins', percent())},
                 { head: 'Draw', cl: 'num', html: ƒ('draw', percent())},
@@ -97,20 +93,6 @@
             .data(data).enter()
             .append('tr')
             .selectAll('td')
-                    .data(function(row, 1) {
-                return columns2.map(function(c) {
-                    // compute cell values for this specific row
-                    var cell = {};
-                    d3.keys(c).forEach(function(k) {
-                        cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
-                    });
-                    return cell;
-                });
-            }).enter()
-            .append('td')
-            .html(ƒ('html'))
-            .attr('class', ƒ('cl'))
-        
             //.data(test[2].flagA).enter()
             .data(function(row,i) {
                 return row.flagA
@@ -120,9 +102,6 @@
             .attr('src', function(d) {
                 return d.src;
             })
-        
-        
-        
             .data(function(row, i) {
                 return columns2.map(function(c) {
                     // compute cell values for this specific row
@@ -136,8 +115,6 @@
             .append('td')
             .html(ƒ('html'))
             .attr('class', ƒ('cl'))
-        
-        
             .data(function(row,i) {
                 return row.flagB
             }).enter()
@@ -146,6 +123,20 @@
             .attr('src', function(d) {
                 return d.src;
             });
+        
+                    .data(function(row, i) {
+                return columns2.map(function(c) {
+                    // compute cell values for this specific row
+                    var cell = {};
+                    d3.keys(c).forEach(function(k) {
+                        cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+                    });
+                    return cell;
+                });
+            }).enter()
+            .append('td')
+            .html(ƒ('html'))
+            .attr('class', ƒ('cl'))
         // Cover percentage
         function percent() {
             return function(f) { return Math.floor(100 * f) % 100 + '%'; };
