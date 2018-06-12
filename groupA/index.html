@@ -74,22 +74,22 @@
 
             // column definitions OK!
             var columns = [
-                { head: '', cl: 'center'},
-                { head: 'Seleção', cl: 'right'},
-                { head: 'V', cl: 'num'},
-                { head: 'E', cl: 'center'},
-                { head: 'V', cl: 'num'},
-                { head: 'Seleção', cl: 'left'},
-                { head: '', cl: 'center'}
+                { head: '', cl: 'center', cl2: 'right'},
+                { head: 'Seleção', cl: 'right', cl2: 'center'},
+                { head: 'V', cl: 'num', cl2: 'center'},
+                { head: 'E', cl: 'center', cl2: 'center'},
+                { head: 'V', cl: 'num', cl2: 'center'},
+                { head: 'Seleção', cl: 'left', cl2: 'center'},
+                { head: '', cl: 'center', cl2: 'left'}
             ];
             var keys = [
-                { head: 'Team A', cl: 'right', html: ƒ('teamA')},
+                { head: 'Team A', cl: 'center', html: ƒ('teamA')},
                 { head: 'Flag A', cl: 'center', html: ƒ('flagA')},
                 { head: 'A wins', cl: 'num', html: ƒ('Awins', percent())},
                 { head: 'Draw', cl: 'num', html: ƒ('draw', percent())},
                 { head: 'B wins', cl: 'num', html: ƒ('Bwins', percent())},
                 { head: 'Flag B', cl: 'center', html: ƒ('flagB')},
-                { head: 'Team B', cl: 'left', html: ƒ('teamB')}
+                { head: 'Team B', cl: 'center', html: ƒ('teamB')}
             ];
             // Criando tabela
             var table = d3.select('body')
@@ -121,7 +121,7 @@
             }).enter()
             .append('td')
             .html(ƒ('html'))
-            .attr('class', ƒ('cl'));
+            .attr('class', ƒ('cl2'));
 
         // Cover percentage
         function percent() {
