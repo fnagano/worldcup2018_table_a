@@ -36,6 +36,7 @@
 }           
     table th:nth-child(1){
        width: 110px;
+        text-align: right;
      }
     table th:nth-child(2){
        width: 50px;
@@ -51,6 +52,7 @@
      }
     table th:nth-child(6){
        width: 50px;
+        text-align: left;
      }
     table th:nth-child(7){
        width: 110px;
@@ -71,13 +73,13 @@
 
             // column definitions OK!
             var columns = [
-                { head: 'Seleção', cl: 'center'},
                 { head: '', cl: 'center'},
+                { head: 'Seleção', cl: 'center'},
                 { head: 'V', cl: 'num'},
                 { head: 'E', cl: 'center'},
                 { head: 'V', cl: 'num'},
-                { head: '', cl: 'center'},
-                { head: 'Seleção', cl: 'center'}
+                { head: 'Seleção', cl: 'center'},
+                { head: '', cl: 'center'}
             ];
             var keys = [
                 { head: 'Team A', cl: 'center', html: ƒ('teamA')},
