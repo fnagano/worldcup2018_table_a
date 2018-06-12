@@ -74,22 +74,22 @@
 
             // column definitions OK!
             var columns = [
-                { head: '', cl: 'right'},
-                { head: 'Seleção', cl: 'center'},
+                { head: '', cl: 'center'},
+                { head: 'Seleção', cl: 'right'},
                 { head: 'V', cl: 'num'},
                 { head: 'E', cl: 'center'},
                 { head: 'V', cl: 'num'},
-                { head: 'Seleção', cl: 'center'},
-                { head: '', cl: 'left'}
+                { head: 'Seleção', cl: 'left'},
+                { head: '', cl: 'center'}
             ];
             var keys = [
-                { head: 'Team A', cl: 'center', html: ƒ('teamA')},
+                { head: 'Team A', cl: 'right', html: ƒ('teamA')},
                 { head: 'Flag A', cl: 'center', html: ƒ('flagA')},
                 { head: 'A wins', cl: 'num', html: ƒ('Awins', percent())},
                 { head: 'Draw', cl: 'num', html: ƒ('draw', percent())},
                 { head: 'B wins', cl: 'num', html: ƒ('Bwins', percent())},
                 { head: 'Flag B', cl: 'center', html: ƒ('flagB')},
-                { head: 'Team B', cl: 'center', html: ƒ('teamB')}
+                { head: 'Team B', cl: 'left', html: ƒ('teamB')}
             ];
             // Criando tabela
             var table = d3.select('body')
