@@ -19,7 +19,7 @@
         table-layout: fixed;
         width: 435px;
         }
-    /*tr {line-height: 15px;} Change row height */ 
+    tr {line-height: 15px;} /*Change row height*/
     tr:hover {background-color: #f5f5f5;}
     th {
     border-bottom: 3px solid #ddd;
@@ -55,6 +55,12 @@
     table th:nth-child(7){
        width: 110px;
      }
+    table td:nth-child(1){
+       text-align: right;
+     }
+    table td:nth-child(7){
+       text-align: left;
+     }
     </style>
 </head>
 <body>
@@ -62,16 +68,15 @@
     d3.json("matches_data.json", function(data)
         {
             var f = d3.f; // Definindo funcao de simplificacao
-
             // column definitions OK!
             var columns = [
-                { head: 'Seleção', cl: 'center'},
+                { head: '', cl: 'center'},
                 { head: '', cl: 'center'},
                 { head: 'V', cl: 'num'},
                 { head: 'E', cl: 'center'},
                 { head: 'V', cl: 'num'},
                 { head: '', cl: 'center'},
-                { head: 'Seleção', cl: 'center'}
+                { head: '', cl: 'center'}
             ];
             var keys = [
                 { head: 'Team A', cl: 'center', html: ƒ('teamA')},
@@ -85,7 +90,6 @@
             // Criando tabela
             var table = d3.select('body')
                 .append('table');
-
             // Criando cabecalho
             table.append('thead').append('tr')
                 .selectAll('th')
@@ -93,7 +97,6 @@
                 .append('th')
                 .attr('class', ƒ('cl'))
                 .text(ƒ('head'));
-
             // Corpo da tabela
             table.append('tbody')
             .selectAll('tr')
@@ -113,7 +116,6 @@
             .append('td')
             .html(ƒ('html'))
             .attr('class', ƒ('cl'));
-
         // Cover percentage
         function percent() {
             return function(f) { return Math.floor(100 * f) % 100 + '%'; };
