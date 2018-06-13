@@ -71,13 +71,13 @@
 
             // column definitions OK!
             var columns = [
-                { head: '', cl: 'center'},
-                { head: '', cl: 'center'},
+                { head: 'Seleção', cl: 'center'},
+                { head: 'Seleção', cl: 'center'},
                 { head: 'V', cl: 'num'},
                 { head: 'E', cl: 'center'},
                 { head: 'V', cl: 'num'},
-                { head: '', cl: 'center'},
-                { head: '', cl: 'center'}
+                { head: 'Seleção', cl: 'center'},
+                { head: 'Seleção', cl: 'center'}
             ];
             var keys = [
                 { head: 'Team A', cl: 'center', html: ƒ('teamA')},
@@ -98,7 +98,9 @@
                 .data(columns).enter()
                 .append('th')
                 .attr('class', ƒ('cl'))
-                .text(ƒ('head'));
+                .text(ƒ('head'))
+                .attr("colspan", function(d) { return d.values; })
+        ;
 
             // Corpo da tabela
             table.append('tbody')
