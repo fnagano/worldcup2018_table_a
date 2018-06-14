@@ -86,6 +86,14 @@
                 { head: 'Flag B', cl: 'center', html: ƒ('flagB')},
                 { head: 'Team B', cl: 'center', html: ƒ('teamB')}
             ];
+        
+        var svg = d3.select('table').append("svg")
+    .attr("width", '100%')
+    .attr("height", '100%')
+    .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
+    .attr('preserveAspectRatio','xMinYMin')
+    .append("g") ;
+        
             // Criando tabela
             var table = d3.select('body')
                 .append('table');
