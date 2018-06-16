@@ -61,8 +61,8 @@
         }       
         
         td.img { text-align: center; } /* Imagens */
-        td.nameleft { text-align: left; } /* Nomes */
-        td.nameright { text-align: right; } /* Nomes */
+        td.namel { text-align: left; } /* Nomes */
+        td.namer { text-align: right; } /* Nomes */
         td.num { text-align: center; } /* Nomes */
 
     </style>
@@ -83,13 +83,13 @@
                 { titulo: '', class: 'header', id: 'teamB', cspan: 1, width: 40 }
             ];
             var data_keys = [
-                { key: 'teamA', class: 'nameright', html: f('teamA') },
+                { key: 'teamA', class: 'namer', html: f('teamA') },
                 { key: 'flagA', class: 'img', html: f('flagA', input_img()) },
                 { key: 'Awins', class: 'num', html: f('Awins', percent()) },
                 { key: 'draw', class: 'num', html: ƒ('draw', percent())},
                 { key: 'Bwins', class: 'num', html: ƒ('Bwins', percent())},
                 { key: 'flagB', class: 'img', html: f('flagB', input_img()) },
-                { key: 'teamB', class: 'nameleft', html: f('teamB') },
+                { key: 'teamB', class: 'namel', html: f('teamB') },
             ];
             // Criando tabela
             var table = d3.select('body')
