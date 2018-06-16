@@ -74,22 +74,22 @@
             var f = d3.f; // Definindo funcao de simplificacao
             // column definitions OK!
             var headers = [
-                { titulo: '', class: 'header', id: 'Team A', cspan: 1, width: 40 },
-                { titulo: '', class: 'header', id: 'Flag A', cspan: 1, width: 30 },
-                { titulo: 'V', class: 'header', id: 'A wins', cspan: 1, width: 30 },
-                { titulo: 'E', class: 'header', id: 'Draw', cspan: 1, width: 30 },
-                { titulo: 'V', class: 'header', id: 'B wins', cspan: 1, width: 30 },
-                { titulo: '', class: 'header', id: 'Flag B', cspan: 1, width: 30 },
-                { titulo: '', class: 'header', id: 'Team B', cspan: 1, width: 30 }
+                { titulo: '', class: 'header', id: 'teamA', cspan: 1, width: 40 },
+                { titulo: '', class: 'header', id: 'flagA', cspan: 1, width: 30 },
+                { titulo: 'V', class: 'header', id: 'Awins', cspan: 1, width: 30 },
+                { titulo: 'E', class: 'header', id: 'draw', cspan: 1, width: 30 },
+                { titulo: 'V', class: 'header', id: 'Bwins', cspan: 1, width: 30 },
+                { titulo: '', class: 'header', id: 'flagB', cspan: 1, width: 30 },
+                { titulo: '', class: 'header', id: 'teamB', cspan: 1, width: 40 }
             ];
             var data_keys = [
-                { key: 'TeamA', class: 'nameright', html: f('TeamA') },
-                { key: 'FlagA', class: 'img', html: f('FlagA', input_img()) },
+                { key: 'teamA', class: 'nameright', html: f('teamA') },
+                { key: 'flagA', class: 'img', html: f('flagA', input_img()) },
                 { key: 'Awins', class: 'num', html: f('Awins', percent()) },
-                { key: 'Draw', cl: 'num', html: ƒ('draw', percent())},
+                { key: 'draw', cl: 'num', html: ƒ('draw', percent())},
                 { key: 'Bwins', cl: 'num', html: ƒ('Bwins', percent())},
-                { key: 'FlagB', class: 'img', html: f('FlagB', input_img()) },
-                { key: 'TeamB', class: 'nameleft', html: f('TeamA') },
+                { key: 'flagB', class: 'img', html: f('flagB', input_img()) },
+                { key: 'teamB', class: 'nameleft', html: f('teamB') },
             ];
             // Criando tabela
             var table = d3.select('body')
