@@ -125,17 +125,7 @@
             }).enter()
             .append('td')
             .html(ƒ('html'))
-            .style('background-color', function(d) {
-                var k = Object.keys(color_control);
-                if (k.includes(d['key'])) {
-                	var val = parseFloat(d['html']);
-	                if (!isNaN(val)) {
-	                    return color_control[d['key']](val);
-	                } else {
-	                    return 'white';
-	                }
-                }
-            })
+
             .attr('class', ƒ('class'));
 			// Funcoes de processamento dos dados
 			// Retorna numero em porcentagem sem casas decimais
