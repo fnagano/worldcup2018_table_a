@@ -1,5 +1,5 @@
 [
-{"flagA": "colombia", "teamA": "Colômbia", "Awins": 0.6055, "draw": 0.2297, "Bwins": 0.1648, "teamB": "Japão", "flagB": "japan"},
-{"flagA": "republic-of-poland", "teamA": "Polônia", "Awins": 0.6263, "draw": 0.2205, "Bwins": 0.1532, "teamB": "Senegal", "flagB": "senegal"},
-{"flagA": "russia", "teamA": "Rússia", "Awins": 0.5885, "draw": 0.2303, "Bwins": 0.1812, "teamB": "Egito", "flagB": "egypt"}
+{"flagA": "portugal", "teamA": "Portugal", "Awins": 0.7487, "draw": 0.1725, "Bwins": 0.0788, "teamB": "Marrocos", "flagB": "morocco"},
+{"flagA": "uruguay", "teamA": "Uruguai", "Awins": 0.8001, "draw": 0.1327, "Bwins": 0.0672, "teamB": "Arábia Saudita", "flagB": "saudi-arabia"},
+{"flagA": "iran", "teamA": "Irã", "Awins": 0.1259, "draw": 0.1834, "Bwins": 0.6907, "teamB": "Espanha", "flagB": "spain"}
 ]
